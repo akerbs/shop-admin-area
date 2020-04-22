@@ -1,0 +1,22 @@
+{
+  "name": "shop_admin_area",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Anatol Kerbs <anker2702@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "marked": "^0.8.0"
+  },
+  "description": "",
+  "devDependencies": {
+    "request": "^2.88.2"
+  }
+}

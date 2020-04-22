@@ -1,0 +1,27 @@
+body {
+  background-color: #eeeeee;
+  font-family: sans-serif;
+}
+h1 {
+  color: #aa6600;
+}
+
+.list li {
+  line-height: 1.5rem;
+}
+
+a.hi {
+  background-color: gold;
+}
+
+.list li a {
+  color: #555;
+  text-decoration: none;
+  border-bottom: 1px dotted #aa6600;
+  padding-bottom: 3px;
+}
+
+.m-table-overview button span {
+  margin-left: 10px;
+}
+

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Shop</title>
+
+    <link rel="stylesheet" href="assets/css/lib/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/lib/jquery-3.4.1.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/js/main.js" defer></script>
+  </head>
+
+  <body>
+    <main>
+      <section class="section-page-title my-3">
+        <div class="container">
+          <h1>The Shop - Admin area</h1>
+        </div>
+      </section>
+      <section class="section-overview my-3">
+        <div class="container">
+          <table class="m-table-overview table table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th>action</th>
+                <th>code</th>
+                <th>short description</th>
+                <th>tagline</th>
+                <th>quantity</th>
+                <th>price</th>
+                <th>stockwarn</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <button
+                    class="btn btn-primary btn-edit"
+                    data-toggle="modal"
+                    data-target="#modal-product-action"
+                  >
+                    <i class="fas fa-edit"></i>
+                    <span class="sr-only">Edit</span>
+                  </button>
+                  <button
+                    class="btn btn-danger btn-delete"
+                    data-toggle="modal"
+                    data-target="#modal-delete"
+                  >
+                    <i class="fas fa-trash-alt"></i>
+                    <span class="sr-only">Delete</span>
+                  </button>
+                </td>
+                <td class="js-td-code" data-code>[code]</td>
+                <td class="js-td-description w-25" data-description>n/a</td>
+                <td class="js-td-tagline" data-tagline>n/a</td>
+                <td class="js-td-quantity" data-quantity>0</td>
+                <td class="js-td-price" data-price>0.00</td>
+                <td class="js-td-stockwarn" data-stockwarn>false</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="7">
+                  <button
+                    class="btn btn-dark btn-add"
+                    data-toggle="modal"
+                    data-target="#modal-product-action"
+                  >
+                    <i class="fas fa-plus"></i><span>new Product</span>
+                  </button>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- Product Delete Modal -->
+    <div
+      class="m-modal-delete modal fade"
+      id="modal-delete"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="title-delete-product"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="title-delete-product">
+              Delete - Product
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to delete the
+            <strong class="product-code">[CODE]</strong> Product?
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary btn-cancel"
+              data-dismiss="modal"
+            >
+              stop
+            </button>
+            <button type="button" class="btn btn-primary btn-confirm-delete">
+              delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Modal -->
+    <div
+      class="m-modal-product modal fade"
+      id="modal-product-action"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="title-action-product"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="title-action-product">
+              <span>[Action]</span> - Product
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form class="form-product">
+            <div class="modal-body">
+              <div class="form-row">
+                <div class="col-4">
+                  <div class="form-group">
+                    <label for="input-code">Code</label>
+                    <input
+                      type="text"
+                      name="code"
+                      id="input-code"
+                      readonly
+                      class="form-control"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-8">
+                  <div class="form-group">
+                    <label for="input-tagline">Tagline</label>
+                    <input
+                      type="text"
+                      name="tagline"
+                      id="input-tagline"
+                      class="form-control"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="textarea-description">Description</label>
+                <textarea
+                  name="description"
+                  rows="2"
+                  id="textarea-description"
+                  class="form-control"
+                ></textarea>
+              </div>
+
+              <div class="form-row">
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="input-quantity">Quantity</label>
+                    <input
+                      type="number"
+                      name="quantity"
+                      id="input-quantity"
+                      class="form-control"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="input-price">Price</label>
+                    <input
+                      type="number"
+                      step="0.1"
+                      name="price"
+                      id="input-price"
+                      class="form-control"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary btn-cancel"
+                data-dismiss="modal"
+              >
+                Cancel
+              </button>
+              <button type="submit" class="btn btn-primary btn-update">
+                Save changes
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
